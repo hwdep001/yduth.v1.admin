@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>메뉴 권한 설정</ion-title>
+
+        <ion-buttons end (click)="saveRoles()">
+            <button ion-button icon-only color="primary">
+                <ion-icon name="checkmark"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="icontent" scroll=false>
+
+    <ion-item class="itop">
+        <ion-label>All</ion-label>
+        <ion-toggle item-right [(ngModel)]="allRole" color="danger" (ionChange)="changeAllRole()"></ion-toggle>
+    </ion-item>
+    <ion-list class="ilist" *ngFor="let rsc of rscs">
+        <ion-list-header class="iheader" no-lines>
+            <ion-label>{{rsc.name}}</ion-label>
+            <ion-toggle item-right [(ngModel)]="rsc.isChecked" color="secondary"></ion-toggle>
+        </ion-list-header>
+        <ng-container *ngIf="rsc.isChecked">
+            <ion-item class="iitem" *ngFor="let rc of rsc.roleCatList">
+                <ion-label>{{rc.name}}</ion-label>
+                <ion-checkbox item-right [(ngModel)]="rc.isChecked" [disabled]="!rsc.isChecked"></ion-checkbox>
+            </ion-item>
+        </ng-container>
+    </ion-list>
+
+</ion-content>

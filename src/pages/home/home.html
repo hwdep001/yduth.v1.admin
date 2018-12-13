@@ -8,11 +8,43 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <ion-list class="ilist">
+    <ion-item class="iitem">
+      UID
+      <ion-note item-end>
+        <h5>{{user.uid}}</h5>
+      </ion-note>
+    </ion-item>
+    <ion-item class="iitem">
+      displayName
+      <ion-note item-end>
+        <h5>{{user.displayName}}</h5>
+      </ion-note>
+    </ion-item>
+    <ion-item class="iitem">
+      email
+      <ion-note item-end>
+        <h5>{{user.email}}</h5>
+      </ion-note>
+    </ion-item>
+    <ion-item class="iitem">
+      photoUrl
+      <ion-note item-end>
+        <h5>{{user.photoUrl}}</h5>
+      </ion-note>
+    </ion-item>
+    <ion-item class="iitem">
+      createDate
+      <ion-note item-end>
+        <h5>{{user.createDate}}</h5>
+      </ion-note>
+    </ion-item>
+    <ion-item class="iitem">
+      lastDate
+      <ion-note item-end>
+        <h5>{{user.lastDate}}</h5>
+      </ion-note>
+    </ion-item>
+  </ion-list>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

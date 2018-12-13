@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>List</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="icontent" scroll=false>
+    <input #insertFile type="file" multiple="false" (change)="onFileChange($event, 0)" style="display: none"/>
+    <input #updateFile type="file" multiple="false" (change)="onFileChange($event, 1)" style="display: none"/>
+
+    <ion-list class="ilist" *ngFor="let sub of s7cList">
+        <ion-list-header class="iheader" no-lines>
+            {{sub.name}}
+        </ion-list-header>
+        <ion-item-sliding *ngFor="let cat of sub.catList">
+            <ion-item class="ilist-item">
+                {{cat.name}}
+                <ion-note class="inote" item-end>
+                    {{cat.version}}
+                </ion-note>
+            </ion-item>
+            <ion-item-options side="right" class="ilist-itemoption">
+                <button ion-button color="primary" (click)="createDefaultCatLec(cat.id)">
+                    <ion-icon name="md-folder"></ion-icon>
+                    CREATE
+                </button>
+                <button ion-button color="secondary" (click)="insertFileClick(cat.id)">
+                    <ion-icon name="md-add-circle"></ion-icon>
+                    INSERT
+                </button>
+                <button ion-button color="gray" (click)="updateFileClick(cat.id)">
+                    <ion-icon name="md-sync"></ion-icon>
+                    UPDATE
+                </button>
+                <button ion-button color="danger" (click)="deleteDefault(cat.id)">
+                    <ion-icon name="trash"></ion-icon>
+                    DELETE
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+
+</ion-content>

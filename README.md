@@ -47,3 +47,16 @@ $ npm install firebase @angular/fire promise-polyfill --save
 $ ionic cordova plugin add cordova-plugin-googleplus --variable REVERSED_CLIENT_ID=yourReversedClientID --variable WEB_APPLICATION_CLIENT_ID=yourwebapplicationclientid
 $ npm install --save @ionic-native/google-plus
 ```
+
+
+## [js-xlsx](https://github.com/SheetJS/js-xlsx)
+```
+$ npm install xlsx
+```
+
+
+## [FileSaver.js](https://github.com/eligrey/FileSaver.js)
+```
+$ npm install file-saver --save
+$ npm install @types/file-saver --save-dev
+```

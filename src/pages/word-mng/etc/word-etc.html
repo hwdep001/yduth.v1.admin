@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>파일 추출</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="icontent">
+
+    <ion-list class="ilist">
+        <ion-list-header class="iheader" no-lines>
+            Category, Lecture, Word
+        </ion-list-header>
+        <ion-item-sliding>
+            <ion-item class="ilist-item">
+                Default categories, lectures
+            </ion-item>
+            <ion-item-options side="right" class="ilist-itemoption">
+                <button ion-button color="primary" (click)="createAllDefaultCatLec()">
+                    <ion-icon name="md-albums"></ion-icon>
+                    CREATE ALL
+                </button>
+                <button ion-button color="danger" (click)="deleteAllDefault()">
+                    <ion-icon name="trash"></ion-icon>
+                    DELETE ALL
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+
+        <ion-list-header class="iheader" no-lines>
+            Id
+        </ion-list-header>
+        <ion-item-sliding>
+            <ion-item class="ilist-item">
+                Reorder
+            </ion-item>
+            <ion-item-options side="right" class="ilist-itemoption">
+                <button ion-button color="primary" icon-only (click)="reorderId()">
+                    <ion-icon name="md-sync"></ion-icon>
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+        
+    </ion-list>
+
+</ion-content>

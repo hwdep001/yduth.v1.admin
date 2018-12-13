@@ -1,0 +1,29 @@
+page-myInfo {
+    .icontent {
+
+        .scroll-content {
+            background-color: map-get($colors, content-bg2);
+        }
+
+        .ilist {
+
+            .iheader {
+                background-color: map-get($colors, content-bg2);
+            }
+
+            .iitem {
+
+                ion-icon {
+                    padding-right: 5px;
+                }
+
+                .inote {
+                }
+
+                .config {
+                    color: map-get($colors, light-green);
+                }
+            }
+        }
+    }
+}

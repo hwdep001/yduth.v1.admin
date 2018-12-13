@@ -1,0 +1,28 @@
+page-userDetail {
+    
+    .icontent {
+    
+        .ilist {
+
+            .iitem {
+                
+                .role-color-0 {
+                    color: map-get($role, role0);
+                }
+
+                .role-color-1 {
+                    color: map-get($role, role1);
+                }
+
+                .role-color-2 {
+                    color: map-get($role, role2);
+                }
+
+                .role-color-3 {
+                    color: map-get($role, role3);
+                }
+            }
+        }
+    }
+}
+    

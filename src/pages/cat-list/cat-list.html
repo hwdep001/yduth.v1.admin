@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="sub" >{{sub.name}}</ion-title>
+
+    <ion-buttons class="nav-btn" end *ngIf="!isEdit && !isOrder" (click)="startEdit()" >
+      <button ion-button icon-only>
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons class="nav-btn" end *ngIf="!isEdit && !isOrder" (click)="startOrder()" >
+      <button ion-button icon-only>
+        <ion-icon name="move"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons class="nav-btn" end *ngIf="isEdit || isOrder" (click)="save()" >
+      <button ion-button icon-only color="primary">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons class="nav-btn" end *ngIf="isEdit || isOrder" (click)="cancel()" >
+      <button ion-button icon-only color="danger">
+        <ion-icon name="redo"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-grid class="add-navi-gird" *ngIf="!isEdit && !isOrder"  >
+    <ion-row>
+      <ion-col col-100>
+        <ion-item>
+          <ion-input type="text" #newCat placeholder="New category name" 
+              (keyup.enter)="addCat(newCat.value)"></ion-input>
+          <button ion-button item-right (click)="addCat(newCat.value)" >
+            Add
+          </button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content class="icontent" [ngClass]="isEdit || isOrder ? 'margin-56' : 'margin-100'" >
+
+  <ion-list class="ilist-row" *ngIf="!isOrder">
+
+    <!-- !isEdit -->
+    <ng-container *ngIf="!isEdit" >
+      <ion-row class="row-header">
+        <ion-col col-20>
+          <ion-item>
+            <ion-label>No</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col col-80>
+          <ion-item>
+            <ion-label>Name</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="row-list" *ngFor="let cat of cats; let i = index;">
+        <ion-col col-20>
+          <ion-item>
+            <ion-label>{{i+1}}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col col-80>
+          <ion-item (click)="clickCat(cat)" class="cursor cat-name" >
+            <ion-label>{{cat.name}}</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <!-- isEdit -->
+    <ng-container *ngIf="isEdit" >
+      <ion-row class="row-header">
+        <ion-col col-15>
+          <ion-item>
+            <ion-label>No</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col col-70>
+          <ion-item>
+            <ion-label>Name</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="row-list" *ngFor="let cat of cats_; let i = index;">
+        <ion-col col-15>
+          <ion-item>
+            <ion-label>{{i+1}}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col col-70>
+          <ion-item >
+            <ion-input type="text" [(ngModel)]="cat.name"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-15 *ngIf="isEdit && cat.isDefault == 0" >
+          <ion-item class="item-trash">
+            <ion-buttons (click)="trashCat(i, cat)">
+              <button ion-button clear icon-only color="danger">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+            </ion-buttons>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+  </ion-list>
+
+  <ion-list class="ilist-item" *ngIf="isOrder" reorder="true" (ionItemReorder)="reorderCats($event)">
+    <ion-item *ngFor="let cat of cats_; let i = index;">
+        {{i+1}}. {{cat.name}}
+    </ion-item>
+  </ion-list>
+
+</ion-content>

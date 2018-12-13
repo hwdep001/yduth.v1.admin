@@ -1,0 +1,25 @@
+page-defaultWord {
+
+    .icontent {
+        user-select: none;
+        
+        .scroll-content {
+            background-color: map-get($colors, content-bg2);
+        }
+
+        .ilist {
+            margin-bottom: 0px;
+
+            .iheader {
+                background-color: map-get($colors, content-bg2);
+            }
+
+            .ilist-itemoption {
+
+                button {
+                    width: 85px;
+                } 
+            }
+        }
+    }
+}
